@@ -1,761 +1,146 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026년 5월 야근 근무 일지</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">
-<style>
-  :root {
-    --bg: #0d0f14;
-    --surface: #161923;
-    --card: #1e2330;
-    --border: #2a3147;
-    --accent: #4f8cff;
-    --accent2: #f0a500;
-    --accent3: #e05c6e;
-    --text: #e8ecf4;
-    --text-muted: #7a88a8;
-    --team1: #4f8cff;
-    --team2: #f0a500;
-    --team3: #3ecf8e;
-    --rank1: #ffd700;
-    --rank2: #c0c0c0;
-    --rank3: #cd7f32;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Paperlogy', sans-serif;
-    min-height: 100vh;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 공주님의 엄중한 무도회 초대장 👑</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Noto+Serif+KR:wght@400;700&display=swap');
 
-  /* Header */
-  .header {
-    background: linear-gradient(135deg, #0d0f14 0%, #1a2240 50%, #0d1628 100%);
-    border-bottom: 1px solid var(--border);
-    padding: 36px 40px 28px;
-    position: relative;
-    overflow: hidden;
-  }
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(79,140,255,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .header-top {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .header-title {
-    font-family: 'Paperlogy', sans-serif; font-weight: 800; letter-spacing: 1px;
-    font-size: 48px;
-    letter-spacing: 4px;
-    color: #fff;
-    line-height: 1;
-  }
-  .header-subtitle {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-top: 6px;
-    letter-spacing: 1px;
-  }
-  .header-meta {
-    display: flex;
-    gap: 20px;
-  }
-  .meta-box {
-    text-align: center;
-  }
-  .meta-num {
-    font-family: 'Paperlogy', sans-serif; font-weight: 800; letter-spacing: 1px;
-    font-size: 32px;
-    color: var(--accent);
-    line-height: 1;
-  }
-  .meta-label {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-top: 2px;
-    letter-spacing: 0.5px;
-  }
+        body {
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffb3c6 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Noto Serif KR', serif;
+            color: #4a3b32;
+        }
 
-  /* Nav Tabs */
-  .tabs {
-    display: flex;
-    gap: 0;
-    padding: 0 40px;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    overflow-x: auto;
-  }
-  .tab {
-    padding: 14px 22px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-muted);
-    cursor: pointer;
-    border-bottom: 3px solid transparent;
-    white-space: nowrap;
-    transition: all 0.2s;
-    user-select: none;
-  }
-  .tab:hover { color: var(--text); }
-  .tab.active {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
+        .invitation-card {
+            background: #ffffff;
+            border: 5px double #fb6f92;
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(251, 111, 146, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
 
-  /* Main */
-  .main { padding: 32px 40px; max-width: 1400px; margin: 0 auto; }
+        /* 공주풍 테두리 장식 */
+        .invitation-card::before, .invitation-card::after {
+            content: "✿";
+            position: absolute;
+            font-size: 24px;
+            color: #ffb3c6;
+        }
+        .invitation-card::before { top: 15px; left: 15px; }
+        .invitation-card::after { bottom: 15px; right: 15px; }
 
-  /* Section */
-  .section { display: none; }
-  .section.active { display: block; }
+        .crown {
+            font-size: 50px;
+            animation: float 3s ease-in-out infinite;
+            margin-bottom: 10px;
+        }
 
-  /* Top 5 */
-  .top5-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-    margin-bottom: 40px;
-  }
-  @media (max-width: 900px) { .top5-grid { grid-template-columns: repeat(2, 1fr); } }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            color: #ff5c8a;
+            margin-top: 0;
+            letter-spacing: 2px;
+        }
 
-  .rank-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 22px 18px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .rank-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-  }
-  .rank-card:nth-child(1) { border-color: var(--rank1); }
-  .rank-card:nth-child(2) { border-color: var(--rank2); }
-  .rank-card:nth-child(3) { border-color: var(--rank3); }
+        .subtitle {
+            font-size: 14px;
+            color: #a37081;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
 
-  .rank-badge {
-    font-family: 'Paperlogy', sans-serif; font-weight: 800; letter-spacing: 1px;
-    font-size: 52px;
-    line-height: 1;
-    opacity: 0.08;
-    position: absolute;
-    top: 8px; right: 14px;
-  }
-  .rank-card:nth-child(1) .rank-badge { color: var(--rank1); }
-  .rank-card:nth-child(2) .rank-badge { color: var(--rank2); }
-  .rank-card:nth-child(3) .rank-badge { color: var(--rank3); }
-  .rank-card:nth-child(4) .rank-badge,
-  .rank-card:nth-child(5) .rank-badge { color: var(--text-muted); }
+        .content {
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 30px;
+            background: #fff5f7;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #ff758f;
+        }
 
-  .rank-position {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-  }
-  .rank-card:nth-child(1) .rank-position { color: var(--rank1); }
-  .rank-card:nth-child(2) .rank-position { color: var(--rank2); }
-  .rank-card:nth-child(3) .rank-position { color: var(--rank3); }
-  .rank-card:nth-child(4) .rank-position,
-  .rank-card:nth-child(5) .rank-position { color: var(--text-muted); }
+        .content strong {
+            color: #ff477e;
+            font-size: 18px;
+        }
 
-  .rank-name {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-  .rank-info {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 16px;
-  }
-  .rank-count {
-    font-family: 'Paperlogy', sans-serif; font-weight: 800; letter-spacing: 1px;
-    font-size: 38px;
-    line-height: 1;
-    color: var(--accent);
-  }
-  .rank-unit {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 2px;
-  }
-  .rank-bar-wrap {
-    margin-top: 14px;
-    height: 4px;
-    background: var(--border);
-    border-radius: 2px;
-  }
-  .rank-bar {
-    height: 4px;
-    border-radius: 2px;
-    background: var(--accent);
-    transition: width 1s ease;
-  }
-  .rank-card:nth-child(1) .rank-bar { background: var(--rank1); }
-  .rank-card:nth-child(2) .rank-bar { background: var(--rank2); }
-  .rank-card:nth-child(3) .rank-bar { background: var(--rank3); }
+        .royal-decree {
+            font-size: 13px;
+            color: #888;
+            font-style: italic;
+            border-top: 1px dashed #ffb3c6;
+            padding-top: 15px;
+        }
 
-  /* Table Section */
-  .section-title {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .section-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+        .btn-go-home {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff758f, #ff8fa3);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(255, 117, 143, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            font-family: 'Noto Serif KR', serif;
+        }
 
-  /* Filter bar */
-  .filter-bar {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  .filter-btn {
-    padding: 7px 16px;
-    border-radius: 20px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-muted);
-    font-size: 12px;
-    font-family: 'Paperlogy', sans-serif;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .filter-btn.team1 { --tc: var(--team1); }
-  .filter-btn.team2 { --tc: var(--team2); }
-  .filter-btn.team3 { --tc: var(--team3); }
-  .filter-btn.team1.active { background: var(--team1); border-color: var(--team1); }
-  .filter-btn.team2.active { background: var(--team2); border-color: var(--team2); color: #000; }
-  .filter-btn.team3.active { background: var(--team3); border-color: var(--team3); color: #000; }
+        .btn-go-home:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 117, 143, 0.6);
+            background: linear-gradient(45deg, #ff477e, #ff758f);
+        }
 
-  /* Data Table */
-  .table-wrap {
-    overflow-x: auto;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-  }
-  thead th {
-    background: #12162080;
-    padding: 12px 16px;
-    text-align: left;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    color: var(--text-muted);
-    white-space: nowrap;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--border);
-  }
-  tbody tr {
-    border-bottom: 1px solid #1e2330;
-    transition: background 0.15s;
-  }
-  tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: rgba(79,140,255,0.05); }
-  tbody td {
-    padding: 11px 16px;
-    color: var(--text);
-    vertical-align: middle;
-  }
-  .td-date { color: var(--text-muted); font-size: 12px; white-space: nowrap; }
-  .td-task { color: var(--text-muted); font-size: 12px; max-width: 320px; line-height: 1.5; }
-
-  /* Team badge */
-  .team-badge {
-    display: inline-block;
-    padding: 3px 9px;
-    border-radius: 10px;
-    font-size: 11px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .t1 { background: rgba(79,140,255,0.15); color: var(--team1); }
-  .t2 { background: rgba(240,165,0,0.15); color: var(--team2); }
-  .t3 { background: rgba(62,207,142,0.15); color: var(--team3); }
-
-  .role-badge {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 11px;
-    background: var(--border);
-    color: var(--text-muted);
-  }
-
-  /* Calendar */
-  .cal-wrap {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
-    margin-bottom: 8px;
-  }
-  .cal-header {
-    text-align: center;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-    padding: 4px;
-  }
-  .cal-day {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 8px 8px;
-    min-height: 72px;
-    position: relative;
-    font-size: 12px;
-    transition: border-color 0.15s;
-  }
-  .cal-day.empty { background: transparent; border-color: transparent; }
-  .cal-day.has-data { border-color: rgba(79,140,255,0.3); }
-  .cal-day.has-data:hover { border-color: var(--accent); }
-  .cal-day-num {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-  }
-  .cal-day.has-data .cal-day-num { color: var(--text); }
-  .cal-dots { display: flex; flex-wrap: wrap; gap: 3px; }
-  .cal-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    font-size: 0;
-  }
-  .cal-count {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-top: 4px;
-  }
-  .cal-day.has-data .cal-count { color: var(--accent); font-weight: 600; }
-
-  /* Person detail */
-  .person-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 16px;
-  }
-  .person-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 18px;
-    transition: border-color 0.15s, transform 0.15s;
-    cursor: pointer;
-  }
-  .person-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
-  .person-card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 12px;
-  }
-  .person-name { font-size: 18px; font-weight: 700; }
-  .person-cnt {
-    font-family: 'Paperlogy', sans-serif; font-weight: 800; letter-spacing: 1px;
-    font-size: 28px;
-    color: var(--accent);
-    line-height: 1;
-  }
-  .person-cnt span { font-size: 11px; font-family: 'Paperlogy', sans-serif; font-weight: 400; color: var(--text-muted); }
-  .person-role { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; }
-  .person-dates { display: flex; flex-wrap: wrap; gap: 5px; }
-  .person-date-chip {
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 10px;
-    background: rgba(79,140,255,0.1);
-    color: var(--accent);
-    border: 1px solid rgba(79,140,255,0.2);
-  }
-
-  .note-box {
-    background: rgba(240,165,0,0.07);
-    border: 1px solid rgba(240,165,0,0.2);
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 24px;
-    font-size: 12px;
-    color: var(--accent2);
-    display: flex;
-    gap: 8px;
-    align-items: flex-start;
-  }
-</style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="header-top">
-    <div>
-      <div class="header-title">야근 근무 일지</div>
-      <div class="header-subtitle">2026년 5월 · 도시계획 1·2·3팀</div>
-    </div>
-    <div class="header-meta">
-      <div class="meta-box">
-        <div class="meta-num" id="total-days">17</div>
-        <div class="meta-label">근무일수</div>
-      </div>
-      <div class="meta-box">
-        <div class="meta-num" id="total-records">65</div>
-        <div class="meta-label">연인원(명)</div>
-      </div>
-      <div class="meta-box">
-        <div class="meta-num" id="total-people">15</div>
-        <div class="meta-label">참여인원</div>
-      </div>
-    </div>
-  </div>
-</div>
+    <div class="invitation-card">
+        <div class="crown">👑</div>
+        <h1>Princess Royal Invitation</h1>
+        <div class="subtitle">~ 칼퇴근 영지로부터의 전갈 ~</div>
 
-<div class="tabs">
-  <div class="tab active" onclick="showTab('overview')">📊 전체 현황</div>
-  <div class="tab" onclick="showTab('table')">📋 상세 목록</div>
-  <div class="tab" onclick="showTab('calendar')">📅 캘린더</div>
-  <div class="tab" onclick="showTab('people')">👤 인원별</div>
-</div>
+        <div class="content">
+            오라버니·언니 오라버니,<br>
+            오늘도 칭송받아 마땅할 노고에<br>
+            치세를 표하옵니다.<br><br>
 
-<div class="main">
+            다름이 아니오라, <strong>'야근'</strong>이라는 미천한 녀석이<br>
+            귀하신 몸을 탐하려 한다는 소문을 들었습니다.<br><br>
 
-  <!-- OVERVIEW -->
-  <div class="section active" id="section-overview">
-    <div class="section-title">🏆 야근 TOP 5 — 5월 한달</div>
-
-    <div class="top5-grid" id="top5-container"></div>
-
-    <div class="section-title">📌 팀별 야근 현황</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;" id="team-summary"></div>
-  </div>
-
-  <!-- TABLE -->
-  <div class="section" id="section-table">
-    <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterTable('all',this)">전체</button>
-      <button class="filter-btn team1" onclick="filterTable('도시계획1팀',this)">도시계획1팀</button>
-      <button class="filter-btn team2" onclick="filterTable('도시계획2팀',this)">도시계획2팀</button>
-      <button class="filter-btn team3" onclick="filterTable('도시계획3팀',this)">도시계획3팀</button>
-    </div>
-    <div class="table-wrap">
-      <table id="main-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>날짜</th>
-            <th>팀</th>
-            <th>직위</th>
-            <th>성명</th>
-            <th>근무내용</th>
-          </tr>
-        </thead>
-        <tbody id="table-body"></tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- CALENDAR -->
-  <div class="section" id="section-calendar">
-    <div class="note-box">
-      ⚠️ 5/8, 5/21 일지의 <b>근무(예정)일</b>이 원본 파일에 <b>2026년 3월 3일</b>로 기재되어 있습니다. 파일 날짜 기준으로 정정하여 표시합니다.
-    </div>
-    <div class="cal-wrap">
-      <div class="cal-header">일</div>
-      <div class="cal-header">월</div>
-      <div class="cal-header">화</div>
-      <div class="cal-header">수</div>
-      <div class="cal-header">목</div>
-      <div class="cal-header">금</div>
-      <div class="cal-header">토</div>
-    </div>
-    <div class="cal-wrap" id="cal-grid"></div>
-  </div>
-
-  <!-- PEOPLE -->
-  <div class="section" id="section-people">
-    <div class="section-title">👤 인원별 야근 현황</div>
-    <div class="person-grid" id="person-grid"></div>
-  </div>
-
-</div>
-
-<script>
-const data = [
-  {date:'2026년 5월 6일 수요일',team:'도시계획1팀',role:'차장',name:'최영진',task:'포천 가채2지구 지구단위계획'},
-  {date:'2026년 5월 6일 수요일',team:'도시계획1팀',role:'대리',name:'김희엽',task:'포천 가채2지구 지구단위계획'},
-  {date:'2026년 5월 6일 수요일',team:'도시계획1팀',role:'사원',name:'오혜린',task:'옥천동 123-2번지 일대 신속통합기획 주택재개발사업 정비계획 수립 및 정비구역 지정 용역 제안서'},
-  {date:'2026년 5월 6일 수요일',team:'도시계획1팀',role:'사원',name:'양소영',task:'옥천동 123-2번지 일대 신속통합기획 주택재개발사업 정비계획 수립 및 정비구역 지정 용역 제안서'},
-  {date:'2026년 5월 7일 목요일',team:'도시계획1팀',role:'사원',name:'오혜린',task:'옥천동 123-2번지 일대 신속통합기획 주택재개발사업 정비계획 수립 및 정비구역 지정 용역 제안서'},
-  // 5/8 파일 (원본 날짜 오기입 → 정정)
-  {date:'2026년 5월 8일 금요일',team:'도시계획1팀',role:'차장',name:'최영진',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 8일 금요일',team:'도시계획1팀',role:'대리',name:'김희엽',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 8일 금요일',team:'도시계획1팀',role:'사원',name:'오혜린',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 8일 금요일',team:'도시계획1팀',role:'사원',name:'양소영',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 8일 금요일',team:'도시계획3팀',role:'차장',name:'조용란',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 8일 금요일',team:'도시계획3팀',role:'대리',name:'신승원',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 8일 금요일',team:'도시계획3팀',role:'주임',name:'김소연',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 8일 금요일',team:'도시계획3팀',role:'사원',name:'권윤지',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 8일 금요일',team:'도시계획3팀',role:'사원',name:'송윤희',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 11일 월요일',team:'도시계획1팀',role:'사원',name:'오혜린',task:'옥천동 123-2번지 일대 신속통합기획 주택재개발사업 정비계획 수립 및 정비구역 지정 용역 제안서'},
-  {date:'2026년 5월 11일 월요일',team:'도시계획1팀',role:'사원',name:'양소영',task:'옥천동 123-2번지 일대 신속통합기획 주택재개발사업 정비계획 수립 및 정비구역 지정 용역 제안서'},
-  {date:'2026년 5월 12일 화요일',team:'도시계획1팀',role:'대리',name:'김희엽',task:'신림9구역 주택재개발사업 정비계획 수립 및 정비구역 지정 용역'},
-  {date:'2026년 5월 12일 화요일',team:'도시계획1팀',role:'사원',name:'오혜린',task:'옥천동 123-2번지 일대 신속통합기획 주택재개발사업 정비계획 수립 및 정비구역 지정 용역 제안서'},
-  {date:'2026년 5월 12일 화요일',team:'도시계획1팀',role:'사원',name:'양소영',task:'옥천동 123-2번지 일대 신속통합기획 주택재개발사업 정비계획 수립 및 정비구역 지정 용역 제안서'},
-  {date:'2026년 5월 12일 화요일',team:'도시계획3팀',role:'대리',name:'신승원',task:'신정4동 922번지 일대 주택정비형 재개발사업 정비계획 수립 및 정비구역 지정 용역'},
-  {date:'2026년 5월 12일 화요일',team:'도시계획3팀',role:'주임',name:'김소연',task:'신정4동 922번지 일대 주택정비형 재개발사업 정비계획 수립 및 정비구역 지정 용역'},
-  {date:'2026년 5월 12일 화요일',team:'도시계획3팀',role:'사원',name:'권윤지',task:'신정4동 922번지 일대 주택정비형 재개발사업 정비계획 수립 및 정비구역 지정 용역'},
-  {date:'2026년 5월 12일 화요일',team:'도시계획3팀',role:'사원',name:'송윤희',task:'신정4동 922번지 일대 주택정비형 재개발사업 정비계획 수립 및 정비구역 지정 용역'},
-  {date:'2026년 5월 13일 수요일',team:'도시계획1팀',role:'차장',name:'최영진',task:'신독산역세권 도심복합개발사업'},
-  {date:'2026년 5월 13일 수요일',team:'도시계획1팀',role:'대리',name:'김희엽',task:'신독산역세권 도심복합개발사업'},
-  {date:'2026년 5월 13일 수요일',team:'도시계획1팀',role:'사원',name:'오혜린',task:'옥천동 123-2번지 일대 신속통합기획 주택재개발사업 정비계획 수립 및 정비구역 지정 용역 제안서'},
-  {date:'2026년 5월 13일 수요일',team:'도시계획1팀',role:'사원',name:'양소영',task:'옥천동 123-2번지 일대 신속통합기획 주택재개발사업 정비계획 수립 및 정비구역 지정 용역 제안서'},
-  {date:'2026년 5월 13일 수요일',team:'도시계획2팀',role:'차장',name:'김민균',task:'양재2동 모아타운 관리계획 수립'},
-  {date:'2026년 5월 13일 수요일',team:'도시계획2팀',role:'대리',name:'권하원',task:'아현동 331-29번지 일대 신통기획'},
-  {date:'2026년 5월 13일 수요일',team:'도시계획2팀',role:'주임',name:'백해지',task:'생활권중심 지구단위계획(문성·정심·시흥) 재정비'},
-  {date:'2026년 5월 13일 수요일',team:'도시계획2팀',role:'사원',name:'김선진',task:'개봉동 153-19번지 일대 신통기획'},
-  {date:'2026년 5월 14일 목요일',team:'도시계획1팀',role:'대리',name:'김희엽',task:'삼화인쇄 양평동부지 개발사업 신축공사'},
-  {date:'2026년 5월 15일 금요일',team:'도시계획1팀',role:'대리',name:'김희엽',task:'신독산역세권 도심복합개발사업'},
-  {date:'2026년 5월 18일 월요일',team:'도시계획1팀',role:'대리',name:'김희엽',task:'구로구 구로동 606-1일원 도심복합개발 주민설명회'},
-  {date:'2026년 5월 18일 월요일',team:'도시계획1팀',role:'사원',name:'오혜린',task:'구로구 구로동 606-1일원 도심복합개발 주민설명회'},
-  {date:'2026년 5월 18일 월요일',team:'도시계획1팀',role:'사원',name:'양소영',task:'구로구 구로동 606-1일원 도심복합개발 주민설명회'},
-  {date:'2026년 5월 19일 화요일',team:'도시계획1팀',role:'대리',name:'김희엽',task:'구로구 구로동 606-1일원 도심복합개발'},
-  {date:'2026년 5월 19일 화요일',team:'도시계획1팀',role:'사원',name:'오혜린',task:'구로구 구로동 606-1일원 도심복합개발'},
-  {date:'2026년 5월 19일 화요일',team:'도시계획1팀',role:'사원',name:'양소영',task:'구로구 구로동 606-1일원 도심복합개발'},
-  {date:'2026년 5월 19일 화요일',team:'도시계획2팀',role:'차장',name:'김민균',task:'대림2생활권 지구단위계획 재정비 용역'},
-  {date:'2026년 5월 19일 화요일',team:'도시계획2팀',role:'주임',name:'백해지',task:'보산동 소규모주택정비 관리계획 수립 및 관리지역 지정 용역'},
-  {date:'2026년 5월 19일 화요일',team:'도시계획2팀',role:'사원',name:'김선진',task:'보산동 소규모주택정비 관리계획 수립 및 관리지역 지정 용역'},
-  {date:'2026년 5월 19일 화요일',team:'도시계획3팀',role:'대리',name:'신승원',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 19일 화요일',team:'도시계획3팀',role:'사원',name:'권윤지',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 19일 화요일',team:'도시계획3팀',role:'사원',name:'송윤희',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 20일 수요일',team:'도시계획3팀',role:'대리',name:'신승원',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 20일 수요일',team:'도시계획3팀',role:'주임',name:'김소연',task:'신창동 29-1번지 일대 주택재개발사업 정비계획수립 및 정비구역지정 용역'},
-  {date:'2026년 5월 20일 수요일',team:'도시계획3팀',role:'사원',name:'권윤지',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 20일 수요일',team:'도시계획3팀',role:'사원',name:'송윤희',task:'가평군 도시재생활성화계획 수립 용역'},
-  // 5/21 원본 날짜 오기입 → 정정
-  {date:'2026년 5월 21일 목요일',team:'도시계획1팀',role:'차장',name:'최영진',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 21일 목요일',team:'도시계획1팀',role:'대리',name:'김희엽',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 21일 목요일',team:'도시계획1팀',role:'사원',name:'오혜린',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 21일 목요일',team:'도시계획1팀',role:'사원',name:'양소영',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 21일 목요일',team:'도시계획3팀',role:'차장',name:'조용란',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 21일 목요일',team:'도시계획3팀',role:'대리',name:'신승원',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 21일 목요일',team:'도시계획3팀',role:'주임',name:'김소연',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 21일 목요일',team:'도시계획3팀',role:'사원',name:'권윤지',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 21일 목요일',team:'도시계획3팀',role:'사원',name:'송윤희',task:'(근무내용 미기재)'},
-  {date:'2026년 5월 22일 금요일',team:'도시계획3팀',role:'대리',name:'신승원',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 22일 금요일',team:'도시계획3팀',role:'주임',name:'김소연',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 22일 금요일',team:'도시계획3팀',role:'사원',name:'권윤지',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 22일 금요일',team:'도시계획3팀',role:'사원',name:'송윤희',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 26일 화요일',team:'도시계획1팀',role:'대리',name:'김희엽',task:'삼화인쇄 양평동부지 개발사업 신축공사'},
-  {date:'2026년 5월 26일 화요일',team:'도시계획3팀',role:'대리',name:'신승원',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 26일 화요일',team:'도시계획3팀',role:'주임',name:'김소연',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 26일 화요일',team:'도시계획3팀',role:'사원',name:'권윤지',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 26일 화요일',team:'도시계획3팀',role:'사원',name:'송윤희',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 27일 수요일',team:'도시계획3팀',role:'대리',name:'신승원',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 27일 수요일',team:'도시계획3팀',role:'사원',name:'권윤지',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 27일 수요일',team:'도시계획3팀',role:'사원',name:'송윤희',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 28일 목요일',team:'도시계획3팀',role:'대리',name:'신승원',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 28일 목요일',team:'도시계획3팀',role:'주임',name:'김소연',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 28일 목요일',team:'도시계획3팀',role:'사원',name:'권윤지',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 28일 목요일',team:'도시계획3팀',role:'사원',name:'송윤희',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 29일 금요일',team:'도시계획3팀',role:'대리',name:'신승원',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 29일 금요일',team:'도시계획3팀',role:'사원',name:'권윤지',task:'가평군 도시재생활성화계획 수립 용역'},
-  {date:'2026년 5월 29일 금요일',team:'도시계획3팀',role:'사원',name:'송윤희',task:'가평군 도시재생활성화계획 수립 용역'},
-];
-
-const teamClass = {
-  '도시계획1팀': 't1',
-  '도시계획2팀': 't2',
-  '도시계획3팀': 't3',
-};
-
-// Count per person
-const personCount = {};
-const personInfo = {};
-const personDates = {};
-data.forEach(d => {
-  personCount[d.name] = (personCount[d.name] || 0) + 1;
-  personInfo[d.name] = { team: d.team, role: d.role };
-  if (!personDates[d.name]) personDates[d.name] = [];
-  const dayNum = d.date.match(/(\d+)일/)?.[1];
-  if (dayNum && !personDates[d.name].includes(dayNum)) personDates[d.name].push(dayNum);
-});
-
-const sorted = Object.entries(personCount).sort((a,b) => b[1]-a[1]);
-const top5 = sorted.slice(0,5);
-const maxCount = top5[0][1];
-
-// TOP 5
-const rankLabels = ['1ST','2ND','3RD','4TH','5TH'];
-const top5Container = document.getElementById('top5-container');
-top5.forEach(([name, cnt], i) => {
-  const info = personInfo[name];
-  const pct = Math.round(cnt / maxCount * 100);
-  top5Container.innerHTML += `
-    <div class="rank-card">
-      <div class="rank-badge">${i+1}</div>
-      <div class="rank-position">${rankLabels[i]}</div>
-      <div class="rank-name">${name}</div>
-      <div class="rank-info">${info.team} · ${info.role}</div>
-      <div class="rank-count">${cnt}</div>
-      <div class="rank-unit">야근일수</div>
-      <div class="rank-bar-wrap"><div class="rank-bar" style="width:${pct}%"></div></div>
-    </div>`;
-});
-
-// Team summary
-const teamCounts = {};
-data.forEach(d => teamCounts[d.team] = (teamCounts[d.team] || 0) + 1);
-const teamSummary = document.getElementById('team-summary');
-const teamColors = {'도시계획1팀':'var(--team1)','도시계획2팀':'var(--team2)','도시계획3팀':'var(--team3)'};
-const teamMembers = {};
-data.forEach(d => {
-  if (!teamMembers[d.team]) teamMembers[d.team] = new Set();
-  teamMembers[d.team].add(d.name);
-});
-Object.entries(teamCounts).forEach(([team, cnt]) => {
-  const color = teamColors[team];
-  const members = [...teamMembers[team]].join(', ');
-  teamSummary.innerHTML += `
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;border-left:3px solid ${color}">
-      <div style="font-size:11px;font-weight:700;color:${color};letter-spacing:1px;margin-bottom:8px">${team}</div>
-      <div style="font-family:'Paperlogy',sans-serif;font-weight:800;font-size:42px;color:${color};line-height:1">${cnt}</div>
-      <div style="font-size:11px;color:var(--text-muted);margin:4px 0 12px">연인원(명)</div>
-      <div style="font-size:11px;color:var(--text-muted)">${members}</div>
-    </div>`;
-});
-
-// TABLE
-function buildTable(filterTeam) {
-  const tbody = document.getElementById('table-body');
-  const filtered = filterTeam === 'all' ? data : data.filter(d => d.team === filterTeam);
-  tbody.innerHTML = '';
-  filtered.forEach((d, i) => {
-    const tc = teamClass[d.team];
-    tbody.innerHTML += `
-      <tr>
-        <td style="color:var(--text-muted);font-size:12px">${i+1}</td>
-        <td class="td-date">${d.date.replace('2026년 ','').replace('일 ','일')}</td>
-        <td><span class="team-badge ${tc}">${d.team}</span></td>
-        <td><span class="role-badge">${d.role}</span></td>
-        <td style="font-weight:600">${d.name}</td>
-        <td class="td-task">${d.task}</td>
-      </tr>`;
-  });
-}
-buildTable('all');
-
-function filterTable(team, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  buildTable(team);
-}
-
-// CALENDAR
-const calDays = {
-  1:0, 2:0, 3:0, 4:0, 5:0, 6:3, 7:4, 8:5,
-  11:1, 12:2, 13:3, 14:4, 15:5,
-  18:1, 19:2, 20:3, 21:4, 22:5,
-  25:0, 26:2, 27:3, 28:4, 29:5
-};
-const dateData = {};
-data.forEach(d => {
-  const m = d.date.match(/(\d+)일/);
-  if (m) {
-    const day = parseInt(m[1]);
-    if (!dateData[day]) dateData[day] = [];
-    dateData[day].push(d);
-  }
-});
-
-const calGrid = document.getElementById('cal-grid');
-// May 2026 starts on Friday (index 5)
-const startDow = 5;
-for (let i = 0; i < startDow; i++) {
-  calGrid.innerHTML += '<div class="cal-day empty"></div>';
-}
-for (let d = 1; d <= 31; d++) {
-  const recs = dateData[d] || [];
-  const hasData = recs.length > 0;
-  const teamSet = new Set(recs.map(r => r.team));
-  let dots = '';
-  if (teamSet.has('도시계획1팀')) dots += '<div class="cal-dot" style="background:var(--team1)" title="도시계획1팀"></div>';
-  if (teamSet.has('도시계획2팀')) dots += '<div class="cal-dot" style="background:var(--team2)" title="도시계획2팀"></div>';
-  if (teamSet.has('도시계획3팀')) dots += '<div class="cal-dot" style="background:var(--team3)" title="도시계획3팀"></div>';
-  calGrid.innerHTML += `
-    <div class="cal-day ${hasData ? 'has-data' : ''}">
-      <div class="cal-day-num">${d}</div>
-      ${hasData ? `<div class="cal-dots">${dots}</div><div class="cal-count">${recs.length}명</div>` : ''}
-    </div>`;
-}
-
-// PEOPLE
-const personGrid = document.getElementById('person-grid');
-sorted.forEach(([name, cnt]) => {
-  const info = personInfo[name];
-  const tc = teamClass[info.team];
-  const dates = (personDates[name] || []).sort((a,b) => a-b).map(d => `<span class="person-date-chip">${d}일</span>`).join('');
-  personGrid.innerHTML += `
-    <div class="person-card">
-      <div class="person-card-top">
-        <div>
-          <div class="person-name">${name}</div>
-          <div class="person-role"><span class="team-badge ${tc}" style="font-size:10px;padding:2px 6px">${info.team}</span> ${info.role}</div>
+            공주의 안위를 위해서라도,<br>
+            해당 시각 이후의 업무는 <strong>'용납 불가'</strong> 이옵니다.<br>
+            신데렐라의 마법도 12시엔 풀리는 법,<br>
+            그대의 마법은 <b>정각 퇴근 시간</b>에 풀려야 마땅합니다.
         </div>
-        <div><div class="person-cnt">${cnt}<span>회</span></div></div>
-      </div>
-      <div class="person-dates">${dates}</div>
-    </div>`;
-});
 
-// TABS
-function showTab(id) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  event.target.classList.add('active');
-  document.getElementById('section-' + id).classList.add('active');
-}
+        <p class="royal-decree">"공주를 기다리게 하는 것은 대역죄인 줄 알라."</p>
 
-// Update stats
-document.getElementById('total-records').textContent = data.length;
-document.getElementById('total-people').textContent = Object.keys(personCount).length;
-const uniqueDates = new Set(data.map(d => d.date));
-document.getElementById('total-days').textContent = uniqueDates.size;
-</script>
+        <button class="btn-go-home" onclick="alert('👑 탁월한 선택이십니다. 속히 마차(지하철/버스)에 오르시지요!')">
+            지금 당장 PC 오프하고 퇴근하기
+        </button>
+    </div>
+
 </body>
 </html>
